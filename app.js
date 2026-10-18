@@ -15,18 +15,22 @@ btn1.addEventListener("click",()=>{
     if(userNum>10 || userNum<1){
         msg.innerText = "Please Enter a valid number!"
         input.value = "";
+        input.focus();
     }
     else if(userNum===secretNum){
         msg.innerText = `🎉 You Won! You guessed it in ${10 - count} attempts!`;
         input.value = "";
+        input.focus();
         btn2.classList.remove("hidden");
 
     }else if(input.value>secretNum){
         msg.innerText = "Go Lower";
         input.value = "";
+        input.focus();
     }else{
         msg.innerText = "Go Upper";
         input.value = "";
+        input.focus();
     }
    
     if(left.innerText==="0"){

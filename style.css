@@ -17,8 +17,10 @@
 body {
     min-height: 100vh;
     display: flex;
+    flex-direction: column; /* Heading upar, card neeche */
     justify-content: center;
     align-items: center;
+    gap: 20px;
     padding: 20px;
     font-family: 'Poppins', sans-serif;
     color: var(--text);
@@ -28,6 +30,24 @@ body {
         radial-gradient(circle at 85% 80%, #a5b4fc 0, transparent 35%),
         linear-gradient(135deg, #f5f3ff, #eef2ff, #faf5ff);
 }
+
+.page-title {
+    text-align: center;
+    font-size: clamp(1.5rem, 5vw, 2.3rem);
+    font-weight: 800;
+    margin: 0;
+    color: #5b21b6;
+    letter-spacing: 1px;
+}
+
+/* Mobile screen */
+@media (max-width: 480px) {
+    .page-title {
+        font-size: 1.5rem;
+        margin: 20px 10px;
+    }
+}
+
 
 /* Main Card */
 .game-card {
