@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Number Guessing Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="game-card">
+    <h1>Guess My Number</h1>
+    <p class="subtitle">Guess a number between 1 and 10</p>
+    <!-- Feedback / Message -->
+    <p id="message" class="message">Good luck!</p>
+
+    <!-- Input and Guess Button -->
+    <div class="input-group">
+      <input type="number" id="userGuess" placeholder="Enter guess">
+      <button onclick="console.log('button was clicked!')" id="guessBtn">Guess</button>
+    </div>
+
+
+    <!-- Stats -->
+    <div class="stats">
+      <p>Attempts left: <span id="attemptsLeft">10</span></p>
+    </div>
+
+    <!-- Restart Button (Hidden initially) -->
+    <button onclick="console.log('restart button was clicked')" id="restartBtn" class="restart-btn hidden">Play Again</button>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
