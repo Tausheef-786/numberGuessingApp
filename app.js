@@ -20,8 +20,8 @@ btn1.addEventListener("click",()=>{
     else if(userNum===secretNum){
         msg.innerText = `🎉 You Won! You guessed it in ${10 - count} attempts!`;
         input.value = "";
-        input.focus();
         btn2.classList.remove("hidden");
+        input.blur();
 
     }else if(input.value>secretNum){
         msg.innerText = "Go Lower";
@@ -36,6 +36,7 @@ btn1.addEventListener("click",()=>{
     if(left.innerText==="0"){
         msg.innerText = "OOPS U LOST try again!";
         btn2.classList.remove("hidden");
+        input.blur();
     }    
 });
 
