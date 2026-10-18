@@ -1,7 +1,6 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
 
-* {
+*, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -14,34 +13,7 @@
     --muted: #77748e;
 }
 
-body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column; /* Heading upar, card neeche */
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    padding: 20px;
-    font-family: 'Poppins', sans-serif;
-    color: var(--text);
-
-    background:
-        radial-gradient(circle at 15% 20%, #c4b5fd 0, transparent 35%),
-        radial-gradient(circle at 85% 80%, #a5b4fc 0, transparent 35%),
-        linear-gradient(135deg, #f5f3ff, #eef2ff, #faf5ff);
-}
-
-.page-title {
-    text-align: center;
-    font-size: clamp(1.5rem, 5vw, 2.3rem);
-    font-weight: 800;
-    margin: 0;
-    color: #5b21b6;
-    letter-spacing: 1px;
-}
-
-
-/* Better overall layout */
+/* Base Body Styles */
 body {
     min-height: 100vh;
     min-height: 100svh;
@@ -49,135 +21,46 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 18px;
+    gap: 20px;
     padding: 24px 16px;
+    font-family: 'Poppins', sans-serif;
+    color: var(--text);
     overflow-x: hidden;
+
+    background:
+        radial-gradient(circle at 15% 20%, #c4b5fd 0, transparent 35%),
+        radial-gradient(circle at 85% 80%, #a5b4fc 0, transparent 35%),
+        linear-gradient(135deg, #f5f3ff, #eef2ff, #faf5ff);
 }
 
-/* Main heading */
+/* Main Page Title */
 .page-title {
     width: 100%;
     max-width: 440px;
-    margin: 0;
-    color: #5b21b6;
     text-align: center;
     font-size: clamp(1.5rem, 5vw, 2.3rem);
-    line-height: 1.3;
+    font-weight: 800;
+    color: var(--primary-dark);
     letter-spacing: -0.5px;
+    line-height: 1.3;
 }
 
-/* Game card */
+/* Main Game Card */
 .game-card {
     width: 100%;
-    max-width: 420px;
-    padding: 32px 26px;
-    border-radius: 24px;
-}
-
-/* Mobile screens */
-@media (max-width: 480px) {
-    body {
-        justify-content: flex-start;
-        padding: 28px 14px 20px;
-        gap: 22px;
-    }
-
-    .page-title {
-        font-size: 1.65rem;
-    }
-
-    .game-card {
-        width: 100%;
-        max-width: 380px;
-        padding: 26px 18px;
-        border-radius: 22px;
-    }
-
-    .game-card h1 {
-        font-size: 1.8rem;
-        line-height: 1.25;
-    }
-
-    .subtitle {
-        margin-bottom: 22px;
-        font-size: 0.82rem;
-    }
-
-    .message {
-        min-height: 50px;
-        padding: 12px 8px;
-        font-size: 0.85rem;
-    }
-
-    .input-group {
-        display: flex;
-        gap: 8px;
-        margin-bottom: 20px;
-    }
-
-    .input-group input {
-        flex: 1;
-        width: 0;
-        min-width: 0;
-        padding: 12px 8px;
-        font-size: 16px;
-    }
-
-    #guessBtn {
-        flex-shrink: 0;
-        padding: 12px 15px;
-        font-size: 0.88rem;
-    }
-
-    .stats {
-        padding: 14px 8px;
-    }
-
-    .restart-btn {
-        padding: 12px;
-    }
-}
-
-/* Very small phones */
-@media (max-width: 350px) {
-    body {
-        padding-inline: 10px;
-    }
-
-    .game-card {
-        padding: 22px 13px;
-    }
-
-    .page-title {
-        font-size: 1.45rem;
-    }
-
-    .game-card h1 {
-        font-size: 1.55rem;
-    }
-
-    #guessBtn {
-        padding-inline: 11px;
-    }
-}
-
-
-
-/* Main Card */
-.game-card {
-    width: 120%;
-    max-width: 600px;
-    padding: 38px 32px;
+    max-width: 440px;
+    padding: 36px 30px;
     text-align: center;
 
-    background: rgba(255, 255, 255, 0.82);
-    border: 1px solid rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.95);
     border-radius: 28px;
 
-    box-shadow: 0 25px 70px rgba(76, 29, 149, 0.16);
+    box-shadow: 0 25px 70px rgba(76, 29, 149, 0.15);
     backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
 
-    animation: appear 0.6s ease;
+    animation: appear 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @keyframes appear {
@@ -185,19 +68,18 @@ body {
         opacity: 0;
         transform: translateY(20px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-/* Heading */
+/* Card Heading & Subtitle */
 .game-card h1 {
-    margin-bottom: 10px;
-    font-size: clamp(1.8rem, 5vw, 2.2rem);
+    margin-bottom: 8px;
+    font-size: clamp(1.6rem, 4vw, 2rem);
     font-weight: 800;
-    letter-spacing: -1px;
+    letter-spacing: -0.5px;
 
     background: linear-gradient(135deg, #7c3aed, #4338ca);
     -webkit-background-clip: text;
@@ -206,37 +88,37 @@ body {
 }
 
 .subtitle {
-    margin-bottom: 26px;
+    margin-bottom: 24px;
     color: var(--muted);
-    font-size: 0.9rem;
-    line-height: 1.7;
+    font-size: 0.88rem;
+    line-height: 1.6;
 }
 
 /* Message Box */
 .message {
-    min-height: 54px;
+    min-height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
 
-    margin-bottom: 22px;
-    padding: 13px;
+    margin-bottom: 20px;
+    padding: 12px 16px;
 
     color: var(--primary-dark);
     background: #f3e8ff;
     border: 1px solid #e9d5ff;
     border-radius: 14px;
 
-    font-size: 0.94rem;
+    font-size: 0.92rem;
     font-weight: 600;
     overflow-wrap: anywhere;
 }
 
-/* Input and Guess Button */
+/* Input and Guess Button Layout */
 .input-group {
     display: flex;
     gap: 10px;
-    margin-bottom: 24px;
+    margin-bottom: 22px;
 }
 
 .input-group input {
@@ -244,17 +126,17 @@ body {
     min-width: 0;
     width: 100%;
 
-    padding: 14px;
+    padding: 14px 16px;
     font-family: inherit;
-    font-size: 0.95rem;
+    font-size: 1rem; /* 16px prevents iOS zoom on focus */
     color: var(--text);
 
     background: #fff;
     border: 1.5px solid #e5e1f0;
-    border-radius: 13px;
+    border-radius: 14px;
     outline: none;
 
-    transition: 0.25s ease;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .input-group input::placeholder {
@@ -268,9 +150,9 @@ body {
 
 /* Guess Button */
 #guessBtn {
-    padding: 14px 22px;
+    padding: 14px 20px;
     border: none;
-    border-radius: 13px;
+    border-radius: 14px;
 
     color: white;
     background: linear-gradient(135deg, #8b5cf6, #6d28d9);
@@ -279,32 +161,36 @@ body {
     font-size: 0.95rem;
     font-weight: 600;
     cursor: pointer;
+    white-space: nowrap;
 
-    box-shadow: 0 7px 18px rgba(109, 40, 217, 0.25);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 6px 16px rgba(109, 40, 217, 0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
 }
 
 #guessBtn:hover:not(:disabled) {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 25px rgba(109, 40, 217, 0.35);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(109, 40, 217, 0.35);
 }
 
 #guessBtn:active:not(:disabled) {
     transform: scale(0.97);
 }
 
-/* Attempts Counter */
+/* Stats Counter */
 .stats {
-    padding: 17px;
+    padding: 16px;
     background: #f8f7ff;
     border: 1px solid #eeebff;
-    border-radius: 15px;
+    border-radius: 14px;
 }
 
 .stats p {
     color: var(--muted);
-    font-size: 0.92rem;
+    font-size: 0.9rem;
     font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #attemptsLeft {
@@ -312,37 +198,37 @@ body {
     justify-content: center;
     align-items: center;
 
-    min-width: 35px;
-    min-height: 35px;
-    margin-left: 6px;
-    padding: 4px 10px;
+    min-width: 32px;
+    min-height: 32px;
+    margin-left: 8px;
+    padding: 2px 8px;
 
     color: #6d28d9;
     background: #ede9fe;
     border-radius: 10px;
 
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 800;
 }
 
 /* Restart Button */
 .restart-btn {
     width: 100%;
-    margin-top: 16px;
+    margin-top: 14px;
     padding: 14px;
 
     color: white;
     background: linear-gradient(135deg, #475569, #1e293b);
     border: none;
-    border-radius: 13px;
+    border-radius: 14px;
 
     font-family: inherit;
-    font-size: 0.96rem;
+    font-size: 0.95rem;
     font-weight: 600;
     cursor: pointer;
 
     box-shadow: 0 6px 16px rgba(30, 41, 59, 0.18);
-    transition: 0.25s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .restart-btn:hover {
@@ -350,15 +236,14 @@ body {
     box-shadow: 0 10px 22px rgba(30, 41, 59, 0.25);
 }
 
-/* Hidden Utility Class */
+/* Utility & States */
 .hidden {
     display: none !important;
 }
 
-/* Keyboard Accessibility */
-button:focus-visible {
+button:focus-visible, input:focus-visible {
     outline: 3px solid #c4b5fd;
-    outline-offset: 4px;
+    outline-offset: 2px;
 }
 
 button:disabled {
@@ -366,41 +251,45 @@ button:disabled {
     cursor: not-allowed;
 }
 
-/* Mobile Responsive */
+/* Responsive Breakpoints */
 @media (max-width: 480px) {
     body {
-        padding: 16px;
+        padding: 16px 12px;
+        justify-content: center;
+        gap: 16px;
     }
 
     .game-card {
-        padding: 30px 20px;
-        border-radius: 23px;
+        padding: 28px 20px;
+        border-radius: 24px;
     }
 
-    .subtitle {
-        font-size: 0.84rem;
-    }
-
-    .input-group {
-        gap: 8px;
+    .page-title {
+        font-size: 1.5rem;
     }
 
     .input-group input {
-        padding: 13px 10px;
-        font-size: 0.88rem;
+        padding: 12px 14px;
     }
 
     #guessBtn {
-        padding: 13px 16px;
-        font-size: 0.88rem;
+        padding: 12px 16px;
     }
 }
 
-/* Respect reduced-motion preferences */
+@media (max-width: 350px) {
+    .game-card {
+        padding: 22px 14px;
+    }
+    
+    .page-title {
+        font-size: 1.35rem;
+    }
+}
+
+/* Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
+    *, *::before, *::after {
         animation: none !important;
         transition: none !important;
     }
